@@ -1,0 +1,111 @@
+.slider {
+  border: 2px solid grey;
+  background-color: black;
+  fill: white;
+  width: 60%;
+  height: 700px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.image{
+  object-fit: contain;
+  object-position: center;
+  transition: position 0.5s ease-in;
+  user-select: none;
+}
+
+.play, .right, .left, .fullscreen{
+  position: absolute;
+  fill: white;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  z-index: 100;
+  user-select: none;
+  transition:transform 300ms;
+}
+
+.right, .left {
+  margin-top: -30px;
+  top: 50%;
+}
+
+.right {
+  right: 1%;
+filter: drop-shadow(-2px 0 6px black);
+
+}
+
+.left{
+left: 1%;
+filter: drop-shadow(2px 0 6px black);
+}
+
+.play {
+  margin-left: -130px;
+  bottom: 1%;
+  filter: drop-shadow(0 0 6px black);
+
+}
+
+.intervalGap {
+  position: absolute;
+  bottom: 1.3%;
+  margin-left: -15px;
+  font-size: 40px;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+}
+
+.fullscreen {
+  filter: drop-shadow(0 0 6px black);
+  bottom: 0.9%;
+  margin-right: -100px;
+}
+
+.play:hover, .right:hover, .left:hover, .fullscreen:hover {
+  transform: scale(1.15, 1.15);
+  transition:transform 300ms;
+}
+
+
+.spinner {
+  animation: rotate 2s linear infinite;
+  z-index: 2;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+  width: 50px;
+  height: 50px;
+}
+.spinner .path {
+  stroke: rgb(199, 199, 199);
+  stroke-linecap: round;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
